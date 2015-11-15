@@ -19,7 +19,7 @@ class ConsentViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         if (checkConsent()) {
-            let surveyView = self.storyboard.instantiateViewControllerWithIdentifier("surveyView") as! SurveyViewController
+            let surveyView = self.storyboard!.instantiateViewControllerWithIdentifier("surveyView") as! SurveyViewController
             self.presentViewController(surveyView, animated: true, completion: nil)
         } else {
             startConsent(self.view)
@@ -42,12 +42,6 @@ class ConsentViewController: UIViewController {
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setBool(false, forKey: "isUserConsented")
         checkConsent()
-    }
-    
-    @IBAction func startSurvey(sender : AnyObject) {
-        let taskViewController = ORKTaskViewController(task: SurveyTask, taskRunUUID: nil)
-        taskViewController.delegate = self
-        presentViewController(taskViewController, animated: true, completion: nil)
     }
     
     func checkConsent()->Bool {

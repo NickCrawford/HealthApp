@@ -6,10 +6,10 @@
 //  Copyright © 2015 Nick Crawford. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import ResearchKit
 
-class SummaryViewController: UIViewController {
+class SurveyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,12 +18,30 @@ class SummaryViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        
+        startSurvey(self.view)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func startSurvey(sender: AnyObject) {
+        let taskViewController = ORKTaskViewController(task: SurveyTask, taskRunUUID: nil)
+        taskViewController.delegate = self
+        presentViewController(taskViewController, animated: true, completion: nil)
+    }
+}
+
+extension SurveyViewController : ORKTaskViewControllerDelegate {
+    
+    func taskViewController(taskViewController: ORKTaskViewController, didFinishWithReason reason:ORKTaskViewControllerFinishReason, error: NSError?) {
+        //Handle results with taskViewController.result
+        if (reason == ORKTaskViewControllerFinishReason.Completed) {
+           
+        }
+        
+        taskViewController.dismissViewControllerAnimated(true, completion: nil)
     }
     
 }

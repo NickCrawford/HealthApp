@@ -32,7 +32,7 @@
                                     <constraint firstAttribute="height" constant="114" id="vSe-AJ-APj"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="39"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dCL-KY-Mff">
@@ -75,23 +75,42 @@
             </objects>
             <point key="canvasLocation" x="304.5" y="315"/>
         </scene>
-        <!--View Controller-->
+        <!--Survey View Controller-->
         <scene sceneID="5hR-8i-jR8">
             <objects>
-                <viewController id="Qer-vS-S6V" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="surveyView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Qer-vS-S6V" customClass="SurveyViewController" customModule="HealthApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xwe-gc-cZC"/>
                         <viewControllerLayoutGuide type="bottom" id="72N-jd-V30"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" restorationIdentifier="surveyView" id="dLA-g7-M9V">
+                    <view key="view" contentMode="scaleToFill" id="dLA-g7-M9V">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <accessibility key="accessibilityConfiguration" identifier=""/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dNR-NV-fK6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1072" y="324"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="iL1-cu-GsC">
+            <objects>
+                <viewController id="2Uj-w0-fFN" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LLY-un-Zgz"/>
+                        <viewControllerLayoutGuide type="bottom" id="zfl-hU-w12"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qa9-Ph-h07">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f1F-E1-zr9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1936" y="324"/>
         </scene>
     </scenes>
 </document>
