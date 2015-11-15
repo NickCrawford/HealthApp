@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Consent View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ConsentViewController" customModule="HealthApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uVH-ye-hJN">
+                                <rect key="frame" x="463" y="28" width="117" height="30"/>
+                                <state key="normal" title="Remove Consent"/>
+                                <connections>
+                                    <action selector="resetConsent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="raL-8z-l6p"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sorry!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRV-sh-WHH">
+                                <rect key="frame" x="249" y="167" width="102" height="114"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="102" id="hNz-Yb-4Kb"/>
+                                    <constraint firstAttribute="height" constant="114" id="vSe-AJ-APj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="39"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dCL-KY-Mff">
+                                <rect key="frame" x="280" y="337" width="40" height="30"/>
+                                <state key="normal" title="Okay!"/>
+                                <connections>
+                                    <action selector="startConsent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ovP-gh-7Qd"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You need to give consent to use this app!" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w7M-mL-Tee">
+                                <rect key="frame" x="115" y="263" width="370" height="73"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="30" y="255" width="340" height="54.5"/>
+                                </variation>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="w7M-mL-Tee" secondAttribute="trailing" constant="10" id="8fe-Qu-k9v"/>
+                            <constraint firstItem="sRV-sh-WHH" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="147" id="AnH-iD-JWc"/>
+                            <constraint firstItem="sRV-sh-WHH" firstAttribute="centerX" secondItem="w7M-mL-Tee" secondAttribute="centerX" id="EUw-Cm-QQ6"/>
+                            <constraint firstItem="sRV-sh-WHH" firstAttribute="centerX" secondItem="dCL-KY-Mff" secondAttribute="centerX" id="Qz3-BR-aFY"/>
+                            <constraint firstItem="uVH-ye-hJN" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="SKK-by-Bhl"/>
+                            <constraint firstItem="uVH-ye-hJN" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="bib-1h-fbC"/>
+                            <constraint firstItem="sRV-sh-WHH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="byT-ZG-tep"/>
+                            <constraint firstItem="w7M-mL-Tee" firstAttribute="top" secondItem="sRV-sh-WHH" secondAttribute="bottom" constant="8" symbolic="YES" id="gWt-NU-9jg"/>
+                            <constraint firstItem="w7M-mL-Tee" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="nTx-TY-hem"/>
+                            <constraint firstItem="dCL-KY-Mff" firstAttribute="top" secondItem="w7M-mL-Tee" secondAttribute="bottom" constant="8" id="yie-u1-6nl"/>
+                        </constraints>
+                    </view>
+                    <keyCommands/>
+                    <connections>
+                        <segue destination="Qer-vS-S6V" kind="show" id="s3R-5O-OPe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="304.5" y="315"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="5hR-8i-jR8">
+            <objects>
+                <viewController id="Qer-vS-S6V" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xwe-gc-cZC"/>
+                        <viewControllerLayoutGuide type="bottom" id="72N-jd-V30"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="surveyView" id="dLA-g7-M9V">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dNR-NV-fK6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1072" y="324"/>
+        </scene>
+    </scenes>
+</document>
