@@ -9,16 +9,25 @@
 import UIKit
 import ResearchKit
 
+
 class SurveyViewController: UIViewController {
+    
+    var survey: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     override func viewDidAppear(animated: Bool) {
-        startSurvey(self.view)
+        if (!survey) {
+            survey = true;
+            startSurvey(self.view)
+        } else {
+            let startView = self.storyboard!.instantiateViewControllerWithIdentifier("startView") as! StartViewController
+            self.presentViewController(startView, animated: true, completion: nil)
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -31,6 +40,7 @@ class SurveyViewController: UIViewController {
         taskViewController.delegate = self
         presentViewController(taskViewController, animated: true, completion: nil)
     }
+
 }
 
 extension SurveyViewController : ORKTaskViewControllerDelegate {
@@ -38,10 +48,18 @@ extension SurveyViewController : ORKTaskViewControllerDelegate {
     func taskViewController(taskViewController: ORKTaskViewController, didFinishWithReason reason:ORKTaskViewControllerFinishReason, error: NSError?) {
         //Handle results with taskViewController.result
         if (reason == ORKTaskViewControllerFinishReason.Completed) {
-           
+            let results: ORKTaskResult = taskViewController.result
+            let data: NSSecureCoding = results;
+            do {
+                var parseError: NSError?
+            let parsedObject: AnyObject? = try NSJSONSerialization.JSONObjectWithData(ORKESerializer.JSONDataForObject(data),
+                options: NSJSONReadingOptions.AllowFragments)
+                print(parsedObject);
+            } catch is NSError {}
+            
         }
         
-        taskViewController.dismissViewControllerAnimated(true, completion: nil)
+        taskViewController.dismissViewControllerAnimated(true, completion:nil)
+        
     }
-    
 }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE5E13061BF8226600B7C51D /* ORKESerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5E13051BF8226600B7C51D /* ORKESerialization.m */; };
+		CE5E13081BF8353400B7C51D /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E13071BF8353400B7C51D /* StartViewController.swift */; };
+		CE5E130A1BF8490A00B7C51D /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E13091BF8490A00B7C51D /* TestViewController.swift */; };
 		CE91DCDF1BF810EE00CE8B71 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE91DCDE1BF810EE00CE8B71 /* DashboardViewController.swift */; };
 		CEED517F1BF7AE53005E6860 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEED517E1BF7AE53005E6860 /* AppDelegate.swift */; };
 		CEED51811BF7AE53005E6860 /* ConsentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEED51801BF7AE53005E6860 /* ConsentViewController.swift */; };
@@ -60,6 +63,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CE5E13031BF8226600B7C51D /* HealthApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HealthApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		CE5E13041BF8226600B7C51D /* ORKESerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORKESerialization.h; sourceTree = "<group>"; };
+		CE5E13051BF8226600B7C51D /* ORKESerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORKESerialization.m; sourceTree = "<group>"; };
+		CE5E13071BF8353400B7C51D /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		CE5E13091BF8490A00B7C51D /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestViewController.swift; path = ../TestViewController.swift; sourceTree = "<group>"; };
 		CE91DCDE1BF810EE00CE8B71 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		CEED517B1BF7AE53005E6860 /* HealthApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEED517E1BF7AE53005E6860 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -107,17 +115,22 @@
 		CEED517D1BF7AE53005E6860 /* HealthApp */ = {
 			isa = PBXGroup;
 			children = (
+				CE5E13041BF8226600B7C51D /* ORKESerialization.h */,
+				CE5E13051BF8226600B7C51D /* ORKESerialization.m */,
 				CEED517E1BF7AE53005E6860 /* AppDelegate.swift */,
 				CEED51801BF7AE53005E6860 /* ConsentViewController.swift */,
+				CE5E13091BF8490A00B7C51D /* TestViewController.swift */,
 				CEED51BD1BF7F6A3005E6860 /* SurveyViewController.swift */,
 				CEED51B41BF7AF48005E6860 /* ConsentDocument.swift */,
 				CEED51BA1BF7D8F9005E6860 /* SurveyTask.swift */,
 				CEED51B61BF7AF54005E6860 /* ConsentTask.swift */,
 				CEED51821BF7AE53005E6860 /* Main.storyboard */,
 				CE91DCDE1BF810EE00CE8B71 /* DashboardViewController.swift */,
+				CE5E13071BF8353400B7C51D /* StartViewController.swift */,
 				CEED51851BF7AE53005E6860 /* Assets.xcassets */,
 				CEED51871BF7AE53005E6860 /* LaunchScreen.storyboard */,
 				CEED518A1BF7AE53005E6860 /* Info.plist */,
+				CE5E13031BF8226600B7C51D /* HealthApp-Bridging-Header.h */,
 			);
 			path = HealthApp;
 			sourceTree = "<group>";
@@ -228,11 +241,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE5E130A1BF8490A00B7C51D /* TestViewController.swift in Sources */,
 				CEED51811BF7AE53005E6860 /* ConsentViewController.swift in Sources */,
 				CE91DCDF1BF810EE00CE8B71 /* DashboardViewController.swift in Sources */,
 				CEED51B71BF7AF54005E6860 /* ConsentTask.swift in Sources */,
 				CEED51B51BF7AF48005E6860 /* ConsentDocument.swift in Sources */,
 				CEED517F1BF7AE53005E6860 /* AppDelegate.swift in Sources */,
+				CE5E13081BF8353400B7C51D /* StartViewController.swift in Sources */,
+				CE5E13061BF8226600B7C51D /* ORKESerialization.m in Sources */,
 				CEED51BE1BF7F6A3005E6860 /* SurveyViewController.swift in Sources */,
 				CEED51BB1BF7D8F9005E6860 /* SurveyTask.swift in Sources */,
 			);
@@ -353,6 +369,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
@@ -361,6 +378,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = nickcrawford.HealthApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "HealthApp/HealthApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -368,6 +387,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
@@ -376,6 +396,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = nickcrawford.HealthApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "HealthApp/HealthApp-Bridging-Header.h";
 			};
 			name = Release;
 		};
