@@ -8,8 +8,7 @@
 
 import ResearchKit
 
-public var GameTask: ORKOrderedTask {
-    
+public var GameSummaryTask: ORKTask {
     var steps = [ORKStep]()
     
     //Show Prompt
@@ -29,22 +28,27 @@ public var GameTask: ORKOrderedTask {
     feelingStep.optional = false;
     
     steps += [feelingStep]
-    
-    
-    //TODO: Implement Game Tasks
-    //Countdown
-    let countDownStep = ORKCountdownStep(identifier: "CountdownStep")
-    steps += [countDownStep]
-    
-    //Test Game
-    let jugglingStep = ORKJugglingStep(identifier: "JugglingStep")
+    return ORKOrderedTask(identifier: "GameSummaryTask", steps: steps)
+}
 
-    steps += [jugglingStep]
+public var GameCompletionTask: ORKTask {
+    var steps = [ORKStep]()
     
+    let commentStepFormat = ORKTextAnswerFormat(maximumLength: 200)
+    commentStepFormat.multipleLines = true
+    let commentStepTitle = "Additional Comments"
+    let commentStep = ORKQuestionStep(identifier: "CommentStep", title: commentStepTitle, answer: commentStepFormat)
+    commentStep.text = "Would you like to add some comments about this test? (i.e. What were you doing before the test? Feeling particularly bad or good?"
+    steps += [commentStep]
+  
+    
+    //show summary, go to dashboard
     let summaryStep = ORKCompletionStep(identifier: "SummaryStep")
     summaryStep.title = "Results"
-    summaryStep.text = "Feeling: [Great!]\n[Game 1]: [time]\n[Game 2]: [time]\n[Game 3]: [time]\nComments:[none]"
+    summaryStep.text = "[Game 1]: [time]\n[Game 2]: [time]\n[Game 3]: [time]"
     steps += [summaryStep]
     
-    return ORKOrderedTask(identifier: "GameTask", steps: steps)
+    return ORKOrderedTask(identifier: "GameCompletionTask", steps: steps)
+    
 }
+

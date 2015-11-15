@@ -18,8 +18,9 @@ class ConsentViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        if (!ConsentViewController.checkConsent()) {
-            startConsent(self.view)
+        if (ConsentViewController.checkConsent()) {
+            let surveyView = self.storyboard!.instantiateViewControllerWithIdentifier("surveyView") as! SurveyViewController
+            self.presentViewController(surveyView, animated: true, completion: nil)
         }
     }
     
