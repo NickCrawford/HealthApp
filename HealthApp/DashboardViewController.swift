@@ -56,6 +56,18 @@ class DashboardViewController : UIViewController {
             presentViewController(gameViewController, animated: true, completion: {self.tasksCompleted += 1})
         }
         
+        
+        if (tasksCompleted > 4) {
+            self.game1Label.text = lastResults[1][0] as! String
+            self.game2Label.text = lastResults[2][0] as! String
+            self.game3Label.text = lastResults[3][0] as! String
+            
+            self.feelingResult.text = "\(lastResults[0][1])/5"
+            self.game1Result.text = lastResults[1][1] as! String
+            self.game2Result.text = lastResults[2][1] as! String
+            self.game3Result.text = lastResults[3][1] as! String
+        }
+        
     }
     
     @IBAction func startTest(sender : AnyObject) {
@@ -99,16 +111,11 @@ class DashboardViewController : UIViewController {
     
     enum Identifier: Int {
         // Active tasks.
-        case FitnessTask = 0
-        case HolePegTestTask = 1
-        case PSATTask=2
-        case ReactionTime=3
-        case ShortWalkTask=4
-        case SpatialSpanMemoryTask=5
-        case TimedWalkTask=6
-        case ToneAudiometryTask=7
-        case TowerOfHanoi=8
-        case TwoFingerTappingIntervalTask=9
+        case HolePegTestTask = 0
+        case PSATTask=1
+        case SpatialSpanMemoryTask=2
+        case TowerOfHanoi=3
+        case TwoFingerTappingIntervalTask=4
     }
     
     
@@ -124,9 +131,9 @@ class DashboardViewController : UIViewController {
      short walking and rest durations of 20 seconds each are used, whereas more
      realistic durations might be several minutes each.
      */
-    private var fitnessTask: ORKTask {
-        return ORKOrderedTask.fitnessCheckTaskWithIdentifier(String(Identifier.FitnessTask), intendedUseDescription: "", walkDuration: 20, restDuration: 20, options: [])
-    }
+//    private var fitnessTask: ORKTask {
+//        return ORKOrderedTask.fitnessCheckTaskWithIdentifier(String(Identifier.FitnessTask), intendedUseDescription: "", walkDuration: 20, restDuration: 20, options: [])
+//    }
     
     /// This task presents the Hole Peg Test pre-defined active task.
     private var holePegTestTask: ORKTask {
@@ -139,17 +146,17 @@ class DashboardViewController : UIViewController {
     }
     
     /// This task presents the Reaction Time pre-defined active task.
-    private var reactionTimeTask: ORKTask {
-        /// An example of a custom sound.
-        //    let successSoundURL = NSBundle.mainBundle().URLForResource("tap", withExtension: "aif")!
-        //    let successSound = SystemSound(soundURL: successSoundURL)!
-        return ORKOrderedTask.reactionTimeTaskWithIdentifier(String(Identifier.ReactionTime), intendedUseDescription: "", maximumStimulusInterval: 10, minimumStimulusInterval: 4, thresholdAcceleration: 0.5, numberOfAttempts: 3, timeout: 3, successSound: 0, timeoutSound: 0, failureSound: UInt32(kSystemSoundID_Vibrate), options: [])
-    }
+//    private var reactionTimeTask: ORKTask {
+//        /// An example of a custom sound.
+//        //    let successSoundURL = NSBundle.mainBundle().URLForResource("tap", withExtension: "aif")!
+//        //    let successSound = SystemSound(soundURL: successSoundURL)!
+//        return ORKOrderedTask.reactionTimeTaskWithIdentifier(String(Identifier.ReactionTime), intendedUseDescription: "", maximumStimulusInterval: 10, minimumStimulusInterval: 4, thresholdAcceleration: 0.5, numberOfAttempts: 3, timeout: 3, successSound: 0, timeoutSound: 0, failureSound: UInt32(kSystemSoundID_Vibrate), options: [])
+//    }
     
     /// This task presents the Gait and Balance pre-defined active task.
-    private var shortWalkTask: ORKTask {
-        return ORKOrderedTask.shortWalkTaskWithIdentifier(String(Identifier.ShortWalkTask), intendedUseDescription: "", numberOfStepsPerLeg: 20, restDuration: 20, options: [])
-    }
+//    private var shortWalkTask: ORKTask {
+//        return ORKOrderedTask.shortWalkTaskWithIdentifier(String(Identifier.ShortWalkTask), intendedUseDescription: "", numberOfStepsPerLeg: 20, restDuration: 20, options: [])
+//    }
     
     /// This task presents the Spatial Span Memory pre-defined active task.
     private var spatialSpanMemoryTask: ORKTask {
@@ -157,9 +164,9 @@ class DashboardViewController : UIViewController {
     }
     
     /// This task presents the Timed Walk pre-defined active task.
-    private var timedWalkTask: ORKTask {
-        return ORKOrderedTask.timedWalkTaskWithIdentifier(String(Identifier.TimedWalkTask), intendedUseDescription: "", distanceInMeters: 100.0, timeLimit: 180.0, options: [])
-    }
+//    private var timedWalkTask: ORKTask {
+//        return ORKOrderedTask.timedWalkTaskWithIdentifier(String(Identifier.TimedWalkTask), intendedUseDescription: "", distanceInMeters: 100.0, timeLimit: 180.0, options: [])
+//    }
     
     /// This task presents the Tone Audiometry pre-defined active task.
 //    private var toneAudiometryTask: ORKTask {
@@ -176,55 +183,42 @@ class DashboardViewController : UIViewController {
     }
     
     enum ActiveTasks: Int {
-        case Fitness = 0
-        case HolePegTest = 1
-        case PSAT = 2
-        case ReactionTime = 3
-        case ShortWalk = 4
-        case SpatialSpanMemory = 5
-        case TimedWalk = 6
-        case TowerOfHanoi = 7
-        case TwoFingerTappingInterval = 8
+        case HolePegTest = 0
+        case PSAT = 1
+        case SpatialSpanMemory = 2
+        case TowerOfHanoi = 3
+        case TwoFingerTappingInterval = 4
     }
     
     func getTask() -> ORKTask {
-        let rand = Int(arc4random_uniform(9))
+        let rand = Int(arc4random_uniform(4))
         
         var task: ORKTask {
             switch rand {
 //            case .Audio:
 //                return audioTask
                 
-            case 0:
-                return fitnessTask
                 
-            case 1:
+            case 0:
                 return holePegTestTask
                 
-            case 2:
+            case 1:
                 return PSATTask
                 
-            case 3:
-                return reactionTimeTask
                 
-            case 4:
-                return shortWalkTask
                 
-            case 5:
+            case 2:
                 return spatialSpanMemoryTask
                 
-            case 6:
-                return timedWalkTask
                 
-                
-            case  7:
+            case  3:
                 return towerOfHanoiTask
                 
-            case 8:
+            case 4:
                 return twoFingerTappingIntervalTask
             
             default:
-                return fitnessTask
+                return holePegTestTask
             }
             
         }
@@ -251,7 +245,11 @@ extension DashboardViewController : ORKTaskViewControllerDelegate {
                 let parsedObject: AnyObject? = try NSJSONSerialization.JSONObjectWithData(ORKESerializer.JSONDataForObject(data),
                     options: NSJSONReadingOptions.AllowFragments)
                 print(parsedObject);
-            } catch is NSError {}
+            } catch is NSError{
+            
+            } catch is NSException {
+            
+            }
             
             if results.identifier == "GameSummaryTask" {
                 
@@ -259,10 +257,10 @@ extension DashboardViewController : ORKTaskViewControllerDelegate {
                 print(lastResults[0][1])
             }
             
-            if results.identifier == "towerOfHanoi" {
-                lastResults[tasksCompleted][0] = "Tower of Hanoi"
-                lastResults[tasksCompleted][1] = (results.stepResultForStepIdentifier("towerOfHanoi")?.firstResult?.valueForKeyPath("moves"))!
-            }
+//            if results.identifier == "towerOfHanoi" {
+//                lastResults[tasksCompleted][0] = "Tower of Hanoi"
+//                lastResults[tasksCompleted][1] = (results.stepResultForStepIdentifier("towerOfHanoi")?.firstResult?.valueForKeyPath("moves"))!
+//            }
             
             
             if results.identifier == "GameCompletionTask" {
@@ -273,16 +271,6 @@ extension DashboardViewController : ORKTaskViewControllerDelegate {
                 tasksCompleted = 0;
             }
             
-            if (tasksCompleted > 4) {
-            self.game1Label.text = lastResults[1][0] as! String
-            self.game2Label.text = lastResults[2][0] as! String
-            self.game3Label.text = lastResults[3][0] as! String
-            
-             self.feelingResult.text = "\(lastResults[0][1])/5"
-            self.game1Result.text = lastResults[1][1] as! String
-             self.game2Result.text = lastResults[2][1] as! String
-             self.game3Result.text = lastResults[3][1] as! String
-            }
             ///Get feeling
             
             //Get results of game tests

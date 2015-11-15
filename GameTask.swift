@@ -44,8 +44,7 @@ public var GameCompletionTask: ORKTask {
     
     //show summary, go to dashboard
     let summaryStep = ORKCompletionStep(identifier: "SummaryStep")
-    summaryStep.title = "Results"
-    summaryStep.text = "[Game 1]: [time]\n[Game 2]: [time]\n[Game 3]: [time]"
+    summaryStep.title = "All done!"
     steps += [summaryStep]
     
     return ORKOrderedTask(identifier: "GameCompletionTask", steps: steps)
