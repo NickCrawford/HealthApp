@@ -12,6 +12,17 @@ import UIKit
 class DashboardViewController : UIViewController {
     
     
+    @IBOutlet var game1Label: UILabel!
+    @IBOutlet var game2Label: UILabel!
+    @IBOutlet var game3Label: UILabel!
+    
+    @IBOutlet var game1Result: UILabel!
+    @IBOutlet var game2Result: UILabel!
+    @IBOutlet var game3Result: UILabel!
+    
+    @IBOutlet var feelingResult
+    : UILabel!
+    
     var tasksCompleted = 0;
     
     var lastResults: [[AnyObject]] = [["Feeling", ""], ["Game 1", "Result"], ["Game 2", "Result"], ["Game 3", "Result"], ["Comments", "comments"]]
@@ -253,9 +264,6 @@ extension DashboardViewController : ORKTaskViewControllerDelegate {
                 lastResults[tasksCompleted][1] = (results.stepResultForStepIdentifier("towerOfHanoi")?.firstResult?.valueForKeyPath("moves"))!
             }
             
-                
-
-            
             
             if results.identifier == "GameCompletionTask" {
                 lastResults[4][0] = "Comments"
@@ -265,6 +273,16 @@ extension DashboardViewController : ORKTaskViewControllerDelegate {
                 tasksCompleted = 0;
             }
             
+            if (tasksCompleted > 4) {
+            self.game1Label.text = lastResults[1][0] as! String
+            self.game2Label.text = lastResults[2][0] as! String
+            self.game3Label.text = lastResults[3][0] as! String
+            
+             self.feelingResult.text = "\(lastResults[0][1])/5"
+            self.game1Result.text = lastResults[1][1] as! String
+             self.game2Result.text = lastResults[2][1] as! String
+             self.game3Result.text = lastResults[3][1] as! String
+            }
             ///Get feeling
             
             //Get results of game tests
