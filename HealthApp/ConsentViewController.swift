@@ -18,10 +18,7 @@ class ConsentViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        if (checkConsent()) {
-            let surveyView = self.storyboard!.instantiateViewControllerWithIdentifier("surveyView") as! SurveyViewController
-            self.presentViewController(surveyView, animated: true, completion: nil)
-        } else {
+        if (!ConsentViewController.checkConsent()) {
             startConsent(self.view)
         }
     }
@@ -41,10 +38,10 @@ class ConsentViewController: UIViewController {
     @IBAction func resetConsent(sender : AnyObject) {
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setBool(false, forKey: "isUserConsented")
-        checkConsent()
+        ConsentViewController.checkConsent()
     }
     
-    func checkConsent()->Bool {
+    static func checkConsent()->Bool {
         let defaults = NSUserDefaults.standardUserDefaults()
         let isUserConsented = defaults.boolForKey("isUserConsented")
             

@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		CE5E13061BF8226600B7C51D /* ORKESerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5E13051BF8226600B7C51D /* ORKESerialization.m */; };
 		CE5E13081BF8353400B7C51D /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E13071BF8353400B7C51D /* StartViewController.swift */; };
-		CE5E130A1BF8490A00B7C51D /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E13091BF8490A00B7C51D /* TestViewController.swift */; };
+		CE5E130A1BF8490A00B7C51D /* GameTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E13091BF8490A00B7C51D /* GameTask.swift */; };
+		CE5E13181BF85A9400B7C51D /* ORKJugglingStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E13171BF85A9400B7C51D /* ORKJugglingStep.swift */; };
+		CE5E131A1BF85B0400B7C51D /* ORKJugglingStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E13191BF85B0400B7C51D /* ORKJugglingStepViewController.swift */; };
 		CE91DCDF1BF810EE00CE8B71 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE91DCDE1BF810EE00CE8B71 /* DashboardViewController.swift */; };
 		CEED517F1BF7AE53005E6860 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEED517E1BF7AE53005E6860 /* AppDelegate.swift */; };
 		CEED51811BF7AE53005E6860 /* ConsentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEED51801BF7AE53005E6860 /* ConsentViewController.swift */; };
@@ -67,7 +69,9 @@
 		CE5E13041BF8226600B7C51D /* ORKESerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORKESerialization.h; sourceTree = "<group>"; };
 		CE5E13051BF8226600B7C51D /* ORKESerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORKESerialization.m; sourceTree = "<group>"; };
 		CE5E13071BF8353400B7C51D /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
-		CE5E13091BF8490A00B7C51D /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestViewController.swift; path = ../TestViewController.swift; sourceTree = "<group>"; };
+		CE5E13091BF8490A00B7C51D /* GameTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameTask.swift; path = ../GameTask.swift; sourceTree = "<group>"; };
+		CE5E13171BF85A9400B7C51D /* ORKJugglingStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORKJugglingStep.swift; sourceTree = "<group>"; };
+		CE5E13191BF85B0400B7C51D /* ORKJugglingStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORKJugglingStepViewController.swift; sourceTree = "<group>"; };
 		CE91DCDE1BF810EE00CE8B71 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		CEED517B1BF7AE53005E6860 /* HealthApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEED517E1BF7AE53005E6860 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +99,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE5E130C1BF859FE00B7C51D /* CustomActiveTasks */ = {
+			isa = PBXGroup;
+			children = (
+				CE5E130D1BF85A1800B7C51D /* Juggling */,
+			);
+			name = CustomActiveTasks;
+			sourceTree = "<group>";
+		};
+		CE5E130D1BF85A1800B7C51D /* Juggling */ = {
+			isa = PBXGroup;
+			children = (
+				CE5E13171BF85A9400B7C51D /* ORKJugglingStep.swift */,
+				CE5E13191BF85B0400B7C51D /* ORKJugglingStepViewController.swift */,
+			);
+			name = Juggling;
+			sourceTree = "<group>";
+		};
 		CEED51721BF7AE53005E6860 = {
 			isa = PBXGroup;
 			children = (
@@ -118,8 +139,9 @@
 				CE5E13041BF8226600B7C51D /* ORKESerialization.h */,
 				CE5E13051BF8226600B7C51D /* ORKESerialization.m */,
 				CEED517E1BF7AE53005E6860 /* AppDelegate.swift */,
+				CE5E130C1BF859FE00B7C51D /* CustomActiveTasks */,
 				CEED51801BF7AE53005E6860 /* ConsentViewController.swift */,
-				CE5E13091BF8490A00B7C51D /* TestViewController.swift */,
+				CE5E13091BF8490A00B7C51D /* GameTask.swift */,
 				CEED51BD1BF7F6A3005E6860 /* SurveyViewController.swift */,
 				CEED51B41BF7AF48005E6860 /* ConsentDocument.swift */,
 				CEED51BA1BF7D8F9005E6860 /* SurveyTask.swift */,
@@ -241,13 +263,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE5E130A1BF8490A00B7C51D /* TestViewController.swift in Sources */,
+				CE5E130A1BF8490A00B7C51D /* GameTask.swift in Sources */,
 				CEED51811BF7AE53005E6860 /* ConsentViewController.swift in Sources */,
 				CE91DCDF1BF810EE00CE8B71 /* DashboardViewController.swift in Sources */,
 				CEED51B71BF7AF54005E6860 /* ConsentTask.swift in Sources */,
+				CE5E13181BF85A9400B7C51D /* ORKJugglingStep.swift in Sources */,
 				CEED51B51BF7AF48005E6860 /* ConsentDocument.swift in Sources */,
 				CEED517F1BF7AE53005E6860 /* AppDelegate.swift in Sources */,
 				CE5E13081BF8353400B7C51D /* StartViewController.swift in Sources */,
+				CE5E131A1BF85B0400B7C51D /* ORKJugglingStepViewController.swift in Sources */,
 				CE5E13061BF8226600B7C51D /* ORKESerialization.m in Sources */,
 				CEED51BE1BF7F6A3005E6860 /* SurveyViewController.swift in Sources */,
 				CEED51BB1BF7D8F9005E6860 /* SurveyTask.swift in Sources */,

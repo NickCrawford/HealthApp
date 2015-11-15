@@ -55,6 +55,34 @@ extension SurveyViewController : ORKTaskViewControllerDelegate {
             let parsedObject: AnyObject? = try NSJSONSerialization.JSONObjectWithData(ORKESerializer.JSONDataForObject(data),
                 options: NSJSONReadingOptions.AllowFragments)
                 print(parsedObject);
+                
+                let url = NSURL(string: "https://healthapp-1130.storage.googleapis.com/objectTest")
+                let request = NSMutableURLRequest(URL:url!);
+                request.HTTPMethod = "POST"
+                // Compose a query string
+                let postString = "key=objectTest&value=1";
+                
+                request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
+                
+                let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+                    data, response, error in
+                    
+                    if error != nil
+                    {
+                        print("error=\(error)")
+                        return
+                    }
+                    
+                    // You can print out response object
+                    print("response = \(response)")
+                    
+                    // Print out response body
+                    let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                    print("responseString = \(responseString)")
+                    
+                }
+                
+                task.resume()
             } catch is NSError {}
             
         }

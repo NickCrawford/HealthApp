@@ -13,7 +13,7 @@ public var SurveyTask: ORKOrderedTask {
     
     //Show Instructions
     let instructionStep = ORKInstructionStep(identifier: "IntroStep")
-    instructionStep.title = "Almost Done!"
+    instructionStep.title = "Almost Done"
     instructionStep.text = "We just need a few more details to start!"
     steps += [instructionStep]
 
@@ -21,17 +21,17 @@ public var SurveyTask: ORKOrderedTask {
     let positionAnswerFormat = ORKTextAnswerFormat(maximumLength: 20)
     positionAnswerFormat.multipleLines = false
     let positionQuestionStepTitle = "What is your occupation?"
-    let positionQuestionStep = ORKQuestionStep(identifier: "QuestionStep", title: positionQuestionStepTitle, answer: positionAnswerFormat)
+    let positionQuestionStep = ORKQuestionStep(identifier: "OccupationStep", title: positionQuestionStepTitle, answer: positionAnswerFormat)
     steps += [positionQuestionStep]
     
     let locationAnswerFormat = ORKTextAnswerFormat(maximumLength: 20)
     locationAnswerFormat.multipleLines = false
     let locationQuestionStepTitle = "Where do you work?"
-    let locationQuestionStep = ORKQuestionStep(identifier: "Question2Step", title: locationQuestionStepTitle, answer: locationAnswerFormat)
+    let locationQuestionStep = ORKQuestionStep(identifier: "LocationStep", title: locationQuestionStepTitle, answer: locationAnswerFormat)
     steps += [locationQuestionStep]
     
     let summaryStep = ORKCompletionStep(identifier: "SummaryStep")
-    summaryStep.title = "Finish"
+    summaryStep.title = "Thanks"
     summaryStep.text = "You're all set!"
     steps += [summaryStep]
     
