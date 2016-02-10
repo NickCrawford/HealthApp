@@ -14,11 +14,11 @@ public var GameSummaryTask: ORKTask {
     //Show Prompt
     let promptStep = ORKInstructionStep(identifier: "promptStep")
     promptStep.title = "Fatigue Test"
-    promptStep.text = "You will play through three quick games to test your fatigue levels. This should only take 2-3 minutes"
+    promptStep.text = "You will play through two quick games to test your fatigue levels. This should only take 2-3 minutes"
     steps += [promptStep]
     
     //Ask for feeling
-    let textChoices : [ORKTextChoice] = [ORKTextChoice(text: "Poor", value: 1), ORKTextChoice(text: "Fair", value: 2), ORKTextChoice(text: "Good", value: 3), ORKTextChoice(text: "Above Average", value: 10), ORKTextChoice(text: "Excellent", value: 5)]
+    let textChoices : [ORKTextChoice] = [ORKTextChoice(text: "Poor", value: 1), ORKTextChoice(text: "Fair", value: 2), ORKTextChoice(text: "Good", value: 3), ORKTextChoice(text: "Above Average", value: 4), ORKTextChoice(text: "Excellent", value: 5)]
     
     let feelingAnswerFormat = ORKAnswerFormat.textScaleAnswerFormatWithTextChoices(textChoices, defaultIndex: NSIntegerMax, vertical: false)
     

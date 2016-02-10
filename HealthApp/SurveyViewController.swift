@@ -79,7 +79,7 @@ extension SurveyViewController : ORKTaskViewControllerDelegate {
                     // Print out response body
                     let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
                     print("responseString = \(responseString)")
-                    
+                
                 }
                 
                 task.resume()

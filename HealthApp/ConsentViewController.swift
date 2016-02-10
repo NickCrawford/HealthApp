@@ -36,12 +36,6 @@ class ConsentViewController: UIViewController {
         
     }
     
-    @IBAction func resetConsent(sender : AnyObject) {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setBool(false, forKey: "isUserConsented")
-        ConsentViewController.checkConsent()
-    }
-    
     static func checkConsent()->Bool {
         let defaults = NSUserDefaults.standardUserDefaults()
         let isUserConsented = defaults.boolForKey("isUserConsented")
@@ -64,6 +58,24 @@ extension ConsentViewController : ORKTaskViewControllerDelegate {
         if (reason == ORKTaskViewControllerFinishReason.Completed) {
             let defaults = NSUserDefaults.standardUserDefaults()
             defaults.setBool(true, forKey: "isUserConsented")
+            
+            let taskResult = taskViewController.result // this should be a ORKTaskResult
+            
+            //Print out results
+            let data: NSSecureCoding = taskResult
+            do {
+                var parseError: NSError?
+                let parsedObject: AnyObject? = try NSJSONSerialization.JSONObjectWithData(ORKESerializer.JSONDataForObject(data),
+                    options: NSJSONReadingOptions.AllowFragments)
+                print(parsedObject);
+            } catch is NSError {}
+            
+            let name = (taskResult.stepResultForStepIdentifier("nameStep")?.firstResult?.valueForKeyPath("signature")?.valueForKeyPath("givenName"))!
+            
+            print(name)
+            
+            
+            defaults.setValue(name, forKey: "userName")
         }
         
         taskViewController.dismissViewControllerAnimated(true, completion: nil)
