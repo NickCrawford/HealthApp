@@ -35,6 +35,8 @@ class DashboardViewController : UIViewController {
     override func viewDidAppear(animated: Bool) {
         
         if (!ConsentViewController.checkConsent()) {
+            let defaults = NSUserDefaults.standardUserDefaults()
+            defaults.setBool(false, forKey: "shiftActive")
             let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("consentView")
             self.showViewController(vc as! UIViewController, sender: vc)
         }

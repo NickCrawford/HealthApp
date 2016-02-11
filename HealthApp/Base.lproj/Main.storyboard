@@ -248,10 +248,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="417-Xd-cLZ" customClass="ORKLineGraphChartView">
-                                <rect key="frame" x="20" y="67" width="560" height="295"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -261,20 +257,16 @@
                             <constraint firstItem="AEQ-vX-uAy" firstAttribute="top" secondItem="te2-zg-yeO" secondAttribute="bottom" constant="8" symbolic="YES" id="2if-HU-8KS"/>
                             <constraint firstItem="GJi-Wy-VhG" firstAttribute="firstBaseline" secondItem="qYi-L7-B5L" secondAttribute="firstBaseline" id="36j-6y-pbb"/>
                             <constraint firstItem="XTy-k7-9ae" firstAttribute="top" secondItem="R1j-OQ-pKZ" secondAttribute="bottom" constant="87" id="8aZ-4c-0ZD"/>
-                            <constraint firstItem="417-Xd-cLZ" firstAttribute="leading" secondItem="qYi-L7-B5L" secondAttribute="leading" id="8qI-uu-3fb"/>
                             <constraint firstItem="GJi-Wy-VhG" firstAttribute="baseline" secondItem="qYi-L7-B5L" secondAttribute="baseline" id="CP2-b9-LXz"/>
                             <constraint firstItem="te2-zg-yeO" firstAttribute="top" secondItem="R1j-OQ-pKZ" secondAttribute="bottom" constant="8" symbolic="YES" id="EHV-El-8dW"/>
-                            <constraint firstItem="417-Xd-cLZ" firstAttribute="trailing" secondItem="ncY-W9-Th1" secondAttribute="trailing" id="Fb7-B8-jbv"/>
                             <constraint firstItem="qYi-L7-B5L" firstAttribute="centerX" secondItem="lr3-Qc-vvN" secondAttribute="centerX" id="Gqh-mC-fUI"/>
                             <constraint firstItem="lqg-Hx-DTt" firstAttribute="top" secondItem="opk-zc-Wiq" secondAttribute="bottom" id="Iq4-xJ-ZWZ"/>
                             <constraint firstItem="AEQ-vX-uAy" firstAttribute="leading" secondItem="te2-zg-yeO" secondAttribute="leading" id="JPw-Pi-cMU"/>
                             <constraint firstItem="GJi-Wy-VhG" firstAttribute="trailing" secondItem="ncY-W9-Th1" secondAttribute="trailing" id="RVv-jc-3WL"/>
                             <constraint firstItem="lr3-Qc-vvN" firstAttribute="leading" secondItem="qYi-L7-B5L" secondAttribute="leading" id="TSJ-wa-sW0"/>
                             <constraint firstItem="R1j-OQ-pKZ" firstAttribute="leading" secondItem="lr3-Qc-vvN" secondAttribute="leading" id="U9U-tl-WaJ"/>
-                            <constraint firstItem="InM-4X-KVK" firstAttribute="top" secondItem="417-Xd-cLZ" secondAttribute="bottom" constant="18" id="UZ2-gG-Grw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eAA-EM-dQZ" secondAttribute="trailing" constant="-1" id="WoI-iA-l0s"/>
                             <constraint firstItem="ncY-W9-Th1" firstAttribute="trailing" secondItem="zMq-A3-EHv" secondAttribute="trailingMargin" id="Zjc-cv-OO5"/>
-                            <constraint firstItem="417-Xd-cLZ" firstAttribute="top" secondItem="lqg-Hx-DTt" secondAttribute="bottom" constant="8" symbolic="YES" id="axU-c8-ZgW"/>
                             <constraint firstItem="R1j-OQ-pKZ" firstAttribute="top" secondItem="lr3-Qc-vvN" secondAttribute="bottom" constant="8" symbolic="YES" id="dPt-zY-xTv"/>
                             <constraint firstItem="eAA-EM-dQZ" firstAttribute="baseline" secondItem="lr3-Qc-vvN" secondAttribute="baseline" id="dus-tU-32B"/>
                             <constraint firstItem="AEQ-vX-uAy" firstAttribute="centerX" secondItem="lqg-Hx-DTt" secondAttribute="centerX" id="fNx-j9-O5X"/>
@@ -294,7 +286,6 @@
                         <outlet property="feelingResult" destination="GJi-Wy-VhG" id="UQZ-D4-T5F"/>
                         <outlet property="game1Label" destination="lr3-Qc-vvN" id="XG9-DO-JGJ"/>
                         <outlet property="game1Result" destination="eAA-EM-dQZ" id="GkN-62-Bny"/>
-                        <outlet property="lineGraph" destination="417-Xd-cLZ" id="7F2-nI-OXZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ls3-Xh-nCj" userLabel="First Responder" sceneMemberID="firstResponder"/>
