@@ -13,8 +13,10 @@ class DashboardViewController : UIViewController {
     
     
     @IBOutlet var game1Label: UILabel!
-    
     @IBOutlet var game1Result: UILabel!
+
+    @IBOutlet weak var commentsLabel: UILabel!
+    @IBOutlet weak var commentsResult: UILabel!
     
     @IBOutlet var feelingResult: UILabel!
     
@@ -54,10 +56,13 @@ class DashboardViewController : UIViewController {
         
         
         if (tasksCompleted > 2) {
-            self.game1Label.text = lastResults[1][0] as! String
+            game1Label.text = String(lastResults[1][0])
             
-            self.feelingResult.text = "\(lastResults[0][1])/5"
-            self.game1Result.text = lastResults[1][1] as! String
+            feelingResult.text = "\(lastResults[0][1]) / 5"
+            game1Result.text = String(lastResults[1][1])
+            
+            commentsResult.text = "\(lastResults[2][1])"
+            tasksCompleted = 0;
         }
         
     }
@@ -113,7 +118,7 @@ class DashboardViewController : UIViewController {
     
     /// This task presents the Hole Peg Test pre-defined active task.
     private var holePegTestTask: ORKTask {
-        return ORKNavigableOrderedTask.holePegTestTaskWithIdentifier(String(Identifier.HolePegTestTask), intendedUseDescription: "", dominantHand: .Right, numberOfPegs: 3, threshold: 0.2, rotated: false, timeLimit: 100, options: [])
+        return ORKNavigableOrderedTask.holePegTestTaskWithIdentifier(String(Identifier.HolePegTestTask), intendedUseDescription: "", dominantHand: .Right, numberOfPegs: 1, threshold: 0.2, rotated: false, timeLimit: 100, options: [])
     }
     
     /// This task presents the Spatial Span Memory pre-defined active task.
@@ -180,8 +185,31 @@ extension DashboardViewController : ORKTaskViewControllerDelegate {
             
             if results.identifier == "GameSummaryTask" {
                 
-                lastResults[0][1] = (results.stepResultForStepIdentifier("FeelingStep")?.firstResult?.valueForKeyPath("choiceAnswers"))!
+                let feelingString = (results.stepResultForStepIdentifier("FeelingStep")?.firstResult?.valueForKeyPath("choiceAnswers"))!
+                let stringBits = String(feelingString).componentsSeparatedByString("\n")
+                
+                if stringBits.count > 1 {
+                    lastResults[0][1] = stringBits[1].stringByReplacingOccurrencesOfString(" ", withString: "")
+                }
                 print(lastResults[0][1])
+            }
+            
+            if results.identifier == "HolePegTestTask" {
+                lastResults[1][0] = "Hole-Peg Test"
+                
+                var totalTime: Double = 0.0;
+                
+                for result: ORKResult in results.results! {
+                    if let timeString = result.valueForKey("results")?.valueForKey("totalTime") {
+                        let timeBits = String(timeString).componentsSeparatedByString("\"")
+                        
+                        if timeBits.count > 1 {
+                            totalTime += Double(timeBits[1])!
+                        }
+                    }
+                }
+                lastResults[1][1] = "Time: \(String(format: "%0.2f", totalTime))s"
+                print(totalTime);
             }
             
             if results.identifier == "GameCompletionTask" {
@@ -189,7 +217,6 @@ extension DashboardViewController : ORKTaskViewControllerDelegate {
                 lastResults[2][1] = (results.stepResultForStepIdentifier("CommentStep")?.firstResult?.valueForKeyPath("textAnswer"))!
                 print(lastResults[2][1])
                 
-                tasksCompleted = 0;
             }
             
             ///Get feeling

@@ -21,7 +21,7 @@ class StartViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         let userName:String! = defaults.stringForKey("userName")
         
-        helloLabel.text = "Hello \(userName)!"
+        helloLabel.text = "Good afternoon, \(userName)."
     }
     
     @IBAction func startShift(sender : AnyObject) {
