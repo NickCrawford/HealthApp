@@ -118,7 +118,7 @@ class DashboardViewController : UIViewController {
     
     /// This task presents the Hole Peg Test pre-defined active task.
     private var holePegTestTask: ORKTask {
-        return ORKNavigableOrderedTask.holePegTestTaskWithIdentifier(String(Identifier.HolePegTestTask), intendedUseDescription: "", dominantHand: .Right, numberOfPegs: 1, threshold: 0.2, rotated: false, timeLimit: 100, options: [])
+        return ORKNavigableOrderedTask.holePegTestTaskWithIdentifier(String(Identifier.HolePegTestTask), intendedUseDescription: "", dominantHand: .Right, numberOfPegs: 3, threshold: 0.2, rotated: false, timeLimit: 100, options: [])
     }
     
     /// This task presents the Spatial Span Memory pre-defined active task.
@@ -212,9 +212,31 @@ extension DashboardViewController : ORKTaskViewControllerDelegate {
                 print(totalTime);
             }
             
+            if results.identifier == "TwoFingerTappingIntervalTask" {
+                lastResults[1][0] = "Tapping Interval Test"
+                
+                var totalTaps: Int = 0;
+                
+                for result: ORKResult in results.results! {
+                    if result.identifier == "tapping" {
+                        for tapSample in String(result.valueForKey("results")?.valueForKey("samples")).componentsSeparatedByString(",") {
+                            totalTaps += 1;
+                        }
+                        
+                    }
+                }
+                totalTaps = totalTaps/2;
+                lastResults[1][1] = "Taps: \(String(format: "%d", totalTaps))"
+                print(totalTaps);
+            }
+            
             if results.identifier == "GameCompletionTask" {
                 lastResults[2][0] = "Comments"
-                lastResults[2][1] = (results.stepResultForStepIdentifier("CommentStep")?.firstResult?.valueForKeyPath("textAnswer"))!
+                if let comment = results.stepResultForStepIdentifier("CommentStep")?.firstResult?.valueForKeyPath("textAnswer") {
+                    lastResults[2][1] = comment
+                } else {
+                    lastResults[2][1] = "None"
+                }
                 print(lastResults[2][1])
                 
             }
