@@ -29,6 +29,8 @@ class DashboardViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let defaults = NSUserDefaults.standardUserDefaults()
+        randTask = defaults.integerForKey("lastRandTask")
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -125,7 +127,7 @@ class DashboardViewController : UIViewController {
     
     /// This task presents the Spatial Span Memory pre-defined active task.
     private var spatialSpanMemoryTask: ORKTask {
-        return ORKOrderedTask.spatialSpanMemoryTaskWithIdentifier(String(Identifier.SpatialSpanMemoryTask), intendedUseDescription: "", initialSpan: 3, minimumSpan: 2, maximumSpan: 15, playSpeed: 1.0, maxTests: 5, maxConsecutiveFailures: 3, customTargetImage: nil, customTargetPluralName: nil, requireReversal: false, options: [])
+        return ORKOrderedTask.spatialSpanMemoryTaskWithIdentifier(String(Identifier.SpatialSpanMemoryTask), intendedUseDescription: "", initialSpan: 3, minimumSpan: 2, maximumSpan: 15, playSpeed: 1.0, maxTests: 20, maxConsecutiveFailures: 1, customTargetImage: nil, customTargetPluralName: nil, requireReversal: false, options: [])
     }
     
     /// This task presents the Two Finger Tapping pre-defined active task.
@@ -153,7 +155,7 @@ class DashboardViewController : UIViewController {
                 return twoFingerTappingIntervalTask
             
             default:
-                return holePegTestTask
+                return twoFingerTappingIntervalTask
             }
 
         }
@@ -172,18 +174,18 @@ extension DashboardViewController : ORKTaskViewControllerDelegate {
         
         //Handle results with taskViewController.result
         if (reason == ORKTaskViewControllerFinishReason.Completed) {
-            let results: ORKTaskResult = taskViewController.result
-            let data: NSSecureCoding = results;
-            do {
-                var parseError: NSError?
-                let parsedObject: AnyObject? = try NSJSONSerialization.JSONObjectWithData(ORKESerializer.JSONDataForObject(data),
-                    options: NSJSONReadingOptions.AllowFragments)
-                print(parsedObject);
-            } catch is NSError{
-            
-            } catch is NSException {
-            
-            }
+            let results: ORKTaskResult = taskViewController.result 
+//            let data: NSSecureCoding = results;
+//            do {
+//                var parseError: NSError?
+//                let parsedObject: AnyObject? = try NSJSONSerialization.JSONObjectWithData(ORKESerializer.JSONDataForObject(data),
+//                    options: NSJSONReadingOptions.AllowFragments)
+//                print(parsedObject);
+//            } catch is NSError{
+//            
+//            } catch is NSException {
+//                
+//            }
             
             if results.identifier == "GameSummaryTask" {
                 
@@ -231,6 +233,17 @@ extension DashboardViewController : ORKTaskViewControllerDelegate {
                 lastResults[1][1] = "Taps: \(String(format: "%d", totalTaps))"
                 print(totalTaps);
             }
+            
+            if results.identifier == "SpatialSpanMemoryTestTask" {
+                lastResults[1][0] = "Memory Test"
+                
+                if let score:Int = results.valueForUndefinedKey("results")?.score {
+                    lastResults[1][1] = "Score: \(String(format: "%d", score))"
+                } else {
+                    lastResults[1][1] = "Score: \(String(format: "%d", 2))" //needs changed later
+                }
+            }
+
             
             if results.identifier == "GameCompletionTask" {
                 lastResults[2][0] = "Comments"

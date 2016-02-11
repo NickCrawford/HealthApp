@@ -35,7 +35,7 @@ class StartViewController: UIViewController {
         while(dashView.randTask == defaults.integerForKey("lastRandTask")) {
             dashView.randTask = Int(arc4random_uniform(3))
         }
-        
+
         defaults.setInteger(dashView.randTask, forKey: "lastRandTask")
         
         self.presentViewController(dashView, animated: true, completion: nil)

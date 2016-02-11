@@ -18,13 +18,13 @@ public var SurveyTask: ORKOrderedTask {
     steps += [instructionStep]
 
     //Ask for Role
-    let positionAnswerFormat = ORKTextAnswerFormat(maximumLength: 20)
+    let positionAnswerFormat = ORKTextAnswerFormat(maximumLength: 40)
     positionAnswerFormat.multipleLines = false
     let positionQuestionStepTitle = "What is your occupation?"
     let positionQuestionStep = ORKQuestionStep(identifier: "OccupationStep", title: positionQuestionStepTitle, answer: positionAnswerFormat)
     steps += [positionQuestionStep]
     
-    let locationAnswerFormat = ORKTextAnswerFormat(maximumLength: 20)
+    let locationAnswerFormat = ORKTextAnswerFormat(maximumLength: 40)
     locationAnswerFormat.multipleLines = false
     let locationQuestionStepTitle = "Where do you work?"
     let locationQuestionStep = ORKQuestionStep(identifier: "LocationStep", title: locationQuestionStepTitle, answer: locationAnswerFormat)

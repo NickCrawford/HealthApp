@@ -14,7 +14,7 @@ public var GameSummaryTask: ORKTask {
     //Show Prompt
     let promptStep = ORKInstructionStep(identifier: "promptStep")
     promptStep.title = "Fatigue Test"
-    promptStep.text = "You will play through two quick games to test your fatigue levels. This should only take 2-3 minutes"
+    promptStep.text = "You will play through a quick game to test your fatigue levels. This should take about a minute"
     steps += [promptStep]
     
     //Ask for feeling
