@@ -13,6 +13,7 @@
 		CE5E13181BF85A9400B7C51D /* ORKJugglingStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E13171BF85A9400B7C51D /* ORKJugglingStep.swift */; };
 		CE5E131A1BF85B0400B7C51D /* ORKJugglingStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E13191BF85B0400B7C51D /* ORKJugglingStepViewController.swift */; };
 		CE91DCDF1BF810EE00CE8B71 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE91DCDE1BF810EE00CE8B71 /* DashboardViewController.swift */; };
+		CEA9271F1C6C613B0046EDBB /* LineGraphDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA9271E1C6C613B0046EDBB /* LineGraphDataSource.swift */; };
 		CEED517F1BF7AE53005E6860 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEED517E1BF7AE53005E6860 /* AppDelegate.swift */; };
 		CEED51811BF7AE53005E6860 /* ConsentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEED51801BF7AE53005E6860 /* ConsentViewController.swift */; };
 		CEED51841BF7AE53005E6860 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEED51821BF7AE53005E6860 /* Main.storyboard */; };
@@ -73,6 +74,7 @@
 		CE5E13171BF85A9400B7C51D /* ORKJugglingStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORKJugglingStep.swift; sourceTree = "<group>"; };
 		CE5E13191BF85B0400B7C51D /* ORKJugglingStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORKJugglingStepViewController.swift; sourceTree = "<group>"; };
 		CE91DCDE1BF810EE00CE8B71 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		CEA9271E1C6C613B0046EDBB /* LineGraphDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineGraphDataSource.swift; sourceTree = "<group>"; };
 		CEED517B1BF7AE53005E6860 /* HealthApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEED517E1BF7AE53005E6860 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEED51801BF7AE53005E6860 /* ConsentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsentViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				CEED51BA1BF7D8F9005E6860 /* SurveyTask.swift */,
 				CEED51B61BF7AF54005E6860 /* ConsentTask.swift */,
 				CEED51821BF7AE53005E6860 /* Main.storyboard */,
+				CEA9271E1C6C613B0046EDBB /* LineGraphDataSource.swift */,
 				CE91DCDE1BF810EE00CE8B71 /* DashboardViewController.swift */,
 				CE5E13071BF8353400B7C51D /* StartViewController.swift */,
 				CEED51851BF7AE53005E6860 /* Assets.xcassets */,
@@ -264,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE5E130A1BF8490A00B7C51D /* GameTask.swift in Sources */,
+				CEA9271F1C6C613B0046EDBB /* LineGraphDataSource.swift in Sources */,
 				CEED51811BF7AE53005E6860 /* ConsentViewController.swift in Sources */,
 				CE91DCDF1BF810EE00CE8B71 /* DashboardViewController.swift in Sources */,
 				CEED51B71BF7AF54005E6860 /* ConsentTask.swift in Sources */,

@@ -26,12 +26,29 @@ class DashboardViewController : UIViewController {
     
     var randTask:Int = 0;
     
+    
+    // Create a line graph view object
+    @IBOutlet weak var lineGraphView: ORKLineGraphChartView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let defaults = NSUserDefaults.standardUserDefaults()
         randTask = defaults.integerForKey("lastRandTask")
         // Do any additional setup after loading the view, typically from a nib.
+        
+        
+        // Connect the line graph view object to a data source
+        lineGraphView.dataSource = LineGraphDataSource()
+        
+        // Optional custom configuration
+        lineGraphView.showsHorizontalReferenceLines = true
+        lineGraphView.showsVerticalReferenceLines = true
+        lineGraphView.axisColor = UIColor.whiteColor()
+        lineGraphView.verticalAxisTitleColor = UIColor.orangeColor()
+        lineGraphView.showsHorizontalReferenceLines = true
+        lineGraphView.showsVerticalReferenceLines = true
+        lineGraphView.scrubberLineColor = UIColor.redColor()
     }
     
     override func viewDidAppear(animated: Bool) {
